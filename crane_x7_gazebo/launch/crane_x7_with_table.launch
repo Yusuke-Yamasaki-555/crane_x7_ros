@@ -33,9 +33,9 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <!-- Load the URDF into the ROS Parameter Server -->
+  <!-- Load the URDF into the ROS Parameter Server (robot_descriptionの読み先を変更。カメラをつけたモデルを読んでいる)-->
   <param name="robot_description"
-    command="$(find xacro)/xacro --inorder '$(find crane_x7_description)/urdf/crane_x7.urdf.xacro' use_effort_gripper:=$(arg use_effort_gripper)"
+    command="$(find xacro)/xacro --inorder '$(find crane_x7_d435)/urdf/crane_x7_d435.xacro' use_effort_gripper:=$(arg use_effort_gripper)"
     />
  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
